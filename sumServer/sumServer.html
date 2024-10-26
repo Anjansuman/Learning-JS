@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let timeout;
+        function debouncingSum() {
+            // this is used to debounce a funtion
+            // it means that if within a given time a request from user gets called again then the timer get cancelled out
+
+            // here, if the user sends another request within the time given (here, 100ms) then the request gets cancelled out and timer will get reset
+            console.log("timeout cleared");
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                console.log("timeout completed");
+                sum()
+            }, 100);
+        }
+
+        async function sum() {
+            const a = document.getElementById("firstNum").value;
+            const b = document.getElementById("secondNum").value;
+
+            const response = await fetch("http://localhost:3000/sum?a=" + a + "&b=" + b);
+            const ans = await response.text();
+
+            const element = document.getElementById("finalSum").innerHTML = ans;
+        } 
+    </script>
+    <!-- <div>
+        <input type="text" placeholder="first number" id="firstNum">
+    </div>
+    <br>
+    <div>
+        <input type="text" placeholder="second number" id="secondNum">
+    </div>
+    <br>
+    <button onclick="sum()">calculate sum</button>
+    <div id="finalSum"></div> -->
+
+    <!-- we can make it little live like we dont have to click the button for result -->
+
+    <input oninput="debouncingSum()" type="text" placeholder="first Number" id="firstNum"> <br><br>
+    <input oninput="debouncingSum()" type="text" placeholder="second Number" id="secondNum"> <br><br>
+    <div id="finalSum"></div>
+
+</body>
+</html>
