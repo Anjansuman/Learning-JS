@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://Anjan:Ancient%407645@cluster0.7mroy.mongodb.net/course_selling_app');
+mongoose.connect('MongoDB cluster link');
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({
