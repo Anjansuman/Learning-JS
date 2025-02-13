@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { Page1 } from "./Pages/Page1";
-import { Page2 } from "./Pages/Page2";
+// import { Page2 } from "./Pages/Page2";
 
 
 function App() {

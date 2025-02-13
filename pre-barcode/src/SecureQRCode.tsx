@@ -49,35 +49,37 @@ const SecureQRCode: React.FC = () => {
   };
 
   return (
-    <div className="p-4 border border-gray-300 rounded-lg">
-      <h2 className="text-lg font-bold mb-2">Secure QR Code for Certificate</h2>
+    <div className="flex justify-center">
+        <div className="p-4 border border-gray-300 rounded-lg">
+        <h2 className="text-lg font-bold mb-2">Secure QR Code for Certificate</h2>
 
-      {/* Generate QR Code */}
-      <QRCode value={encryptedQRCode} size={200} />
+        {/* Generate QR Code */}
+        <QRCode value={encryptedQRCode} size={200} className=""/>
 
-      <div>
-      <button
-        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        onClick={handleScan}
-      >
-        Simulate Scan & Verify
-      </button>
-      </div>
-
-      {/* Verification Result */}
-      {scannedData && (
-        <div className="mt-4 p-2 bg-green-100 text-green-800 border border-green-500">
-          <h3 className="font-semibold">Valid Certificate Data:</h3>
-          <pre className="text-sm">{scannedData}</pre>
+        <div>
+        <button
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            onClick={handleScan}
+        >
+            Simulate Scan & Verify
+        </button>
         </div>
-      )}
 
-      {isTampered && (
-        <div className="mt-4 p-2 bg-red-100 text-red-800 border border-red-500">
-          <h3 className="font-semibold">⚠️ QR Code has been tampered with!</h3>
-          <p>Decryption failed, indicating data modification.</p>
+        {/* Verification Result */}
+        {scannedData && (
+            <div className="mt-4 p-2 bg-green-100 text-green-800 border border-green-500">
+            <h3 className="font-semibold">Valid Certificate Data:</h3>
+            <pre className="text-sm">{scannedData}</pre>
+            </div>
+        )}
+
+        {isTampered && (
+            <div className="mt-4 p-2 bg-red-100 text-red-800 border border-red-500">
+            <h3 className="font-semibold">⚠️ QR Code has been tampered with!</h3>
+            <p>Decryption failed, indicating data modification.</p>
+            </div>
+        )}
         </div>
-      )}
     </div>
   );
 };
