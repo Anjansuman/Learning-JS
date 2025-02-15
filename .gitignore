@@ -1,3 +1,5 @@
 /PostgreSQL/.env
 /PostgreSQL/dist
 /BAR-CODE/dist
+/Prisma/dist
+/Prisma/.env
